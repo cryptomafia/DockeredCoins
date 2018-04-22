@@ -1,0 +1,11 @@
+version: "3.4"
+
+services:
+  bitcoind:
+    build: bitcoin
+    command: bash -c "sleep 5d"
+    ports:
+      - 18332:18332
+    volumes:
+      - /media/ix/ledgers/btc:/root/.bitcoin
+      - ./bitcoin/bitcoin.conf:/root/.bitcoin/bitcoin.conf
