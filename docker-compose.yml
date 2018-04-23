@@ -5,7 +5,7 @@ services:
     build: bitcoin
     command: bash -c "bitcoind && sleep 5d"
     volumes:
-      - bitcoin-data:/root/.bitcoin/
+      - ${BITCOIN_DATA}:/root/.bitcoin/
 
   litecoind:
     build: litecoin
@@ -13,13 +13,4 @@ services:
     ports:
       - 19332:19332
     volumes:
-      - litecoin-data:/opt/litecoin/
-
-
-volumes:
-  bitcoin-data:
-    name: ${BITCOIN_DATA} # Real ending name
-    external: false
-  litecoin-data:
-    name: ${LITECOIN_DATA} # Real ending name
-    external: false
+      - ${LITECOIN_DATA}:/opt/litecoin/
