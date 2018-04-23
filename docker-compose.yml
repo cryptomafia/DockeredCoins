@@ -3,9 +3,16 @@ version: "3.4"
 services:
   bitcoind:
     build: bitcoin
+    command: bash -c "bitcoind && sleep 5d"
+    volumes:
+      - /media/ix/ledgers/btc:/root/.bitcoin/
+      - ./bitcoin/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+
+  litecoind:
+    build: litecoin
     command: bash -c "sleep 5d"
     ports:
-      - 18332:18332
+      - 19332:19332
     volumes:
-      - /media/ix/ledgers/btc:/root/.bitcoin
-      - ./bitcoin/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+      - /media/ix/ledgers/ltc:/opt/litecoin/
+      - /media/ix/ledgers/ltc/litecoin.conf:/opt/litecoin/litecoin.conf
