@@ -4,6 +4,9 @@ services:
   bitcoind:
     build: bitcoin
     command: bash -c "bitcoind && sleep 5d"
+    ports:
+      - 8332:8332
+      - 8333:8333
     volumes:
       - ${BITCOIN_DATA}:/root/.bitcoin/
 
@@ -11,6 +14,7 @@ services:
     build: litecoin
     command: bash -c "sleep 5d"
     ports:
-      - 19332:19332
+      - 9332:9332
+      - 9333:9333
     volumes:
       - ${LITECOIN_DATA}:/opt/litecoin/
