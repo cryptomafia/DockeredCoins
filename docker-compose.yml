@@ -5,8 +5,7 @@ services:
     build: bitcoin
     command: bash -c "bitcoind && sleep 5d"
     volumes:
-      - /media/ix/ledgers/btc:/root/.bitcoin/
-      - ./bitcoin/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+      - bitcoin-data:/root/.bitcoin/
 
   litecoind:
     build: litecoin
@@ -14,5 +13,13 @@ services:
     ports:
       - 19332:19332
     volumes:
-      - /media/ix/ledgers/ltc:/opt/litecoin/
-      - /media/ix/ledgers/ltc/litecoin.conf:/opt/litecoin/litecoin.conf
+      - litecoin-data:/opt/litecoin/
+
+
+volumes:
+  bitcoin-data:
+    name: ${BITCOIN_DATA} # Real ending name
+    external: false
+  litecoin-data:
+    name: ${LITECOIN_DATA} # Real ending name
+    external: false
