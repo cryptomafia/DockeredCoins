@@ -23,3 +23,7 @@ services:
       - ${LITECOIN_DATA}:/opt/litecoin/
     networks:
       - cryptexcb_default
+
+networks:
+  cryptexcb_default:
+    external: true
