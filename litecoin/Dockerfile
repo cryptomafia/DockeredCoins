@@ -7,7 +7,3 @@ RUN apt update && apt install -y wget && \
     mv litecoin-0.15.1 litecoin
 
 VOLUME ["/opt/litecoin"]
-
-EXPOSE 9332 9333
-
-CMD ["/opt/litecoin/litecoin/bin/litecoind "]
