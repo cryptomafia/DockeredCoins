@@ -15,7 +15,7 @@ services:
 
   litecoind:
     build: litecoin
-    command: bash -c "/opt/litecoin/litecoin/bin/litecoind -conf=/opt/litecoin/litecoin.conf && sleep 5d"
+    command: bash -c "/opt/litecoin/bin/litecoind -conf=/opt/litecoin/litecoin.conf && sleep 5d"
     ports:
       - 9332:9332
       - 9333:9333
