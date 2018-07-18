@@ -15,12 +15,12 @@ services:
 
   litecoind:
     build: litecoin
-    command: bash -c "/opt/litecoin/bin/litecoind -conf=/opt/litecoin/litecoin.conf && sleep 5d"
+    command: bash -c "litecoind --conf=/root/.litecoin/litecoin.conf && sleep 5d"
     ports:
       - 9332:9332
       - 9333:9333
     volumes:
-      - ${LITECOIN_DATA}:/opt/litecoin/
+      - ${LITECOIN_DATA}:/root/.litecoin/
     networks:
       - cryptexcb_default
 
