@@ -24,6 +24,17 @@ services:
     networks:
       - cryptexcb_default
 
+  geth:
+    build: ethereum
+    command: /root/.ethereum/run.sh
+    volumes:
+      - /home/zuber/.ethereum:/root/.ethereum/
+      - ./ethereum/run.sh:/root/.ethereum/run.sh
+    environment:
+      - TESTNET=1
+    networks:
+      - cryptexcb_default
+
 networks:
   cryptexcb_default:
     external: true
