@@ -36,5 +36,5 @@ services:
       - cryptexcb_default
 
 networks:
-  cryptexcb_default:
+  coins:
     external: true
