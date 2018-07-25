@@ -10,7 +10,7 @@ services:
     environment:
       - TESTNET=1
     networks:
-      - cryptexcb_default
+      - coins
 
 
   litecoind:
@@ -22,7 +22,7 @@ services:
     environment:
       - TESTNET=1
     networks:
-      - cryptexcb_default
+      - coins
 
   geth:
     build: ethereum
@@ -33,7 +33,7 @@ services:
     environment:
       - TESTNET=1
     networks:
-      - cryptexcb_default
+      - coins
 
 networks:
   coins:
