@@ -5,7 +5,7 @@ services:
     build: bitcoin
     command: /root/.bitcoin/run.sh
     volumes:
-      - /home/zuber/.bitcoin:/root/.bitcoin/
+      - ${COINS_DIRECTORY}/.bitcoin:/root/.bitcoin/
       - ./bitcoin/run.sh:/root/.bitcoin/run.sh
     environment:
       - TESTNET=1
@@ -17,7 +17,7 @@ services:
     build: litecoin
     command: /root/.litecoin/run.sh
     volumes:
-      - /home/zuber/.litecoin:/root/.litecoin/
+      - ${COINS_DIRECTORY}/.litecoin:/root/.litecoin/
       - ./litecoin/run.sh:/root/.litecoin/run.sh
     environment:
       - TESTNET=1
@@ -28,7 +28,7 @@ services:
     build: ethereum
     command: /root/.ethereum/run.sh
     volumes:
-      - /home/zuber/.ethereum:/root/.ethereum/
+      - ${COINS_DIRECTORY}/.ethereum:/root/.ethereum/
       - ./ethereum/run.sh:/root/.ethereum/run.sh
     environment:
       - TESTNET=1
