@@ -1,26 +1,26 @@
-version: "3.4"
+version: "3.5"
 
 services:
   bitcoind:
     build: bitcoin
-    command: bash -c "bitcoind && sleep 5d"
-    ports:
-      - 8332:8332
-      - 8333:8333
+    command: /root/.bitcoin/run.sh
     volumes:
-      - ${BITCOIN_DATA}:/root/.bitcoin/
+      - /home/zuber/.bitcoin:/root/.bitcoin/
+      - ./bitcoin/run.sh:/root/.bitcoin/run.sh
+    environment:
+      - TESTNET=1
     networks:
       - cryptexcb_default
 
 
   litecoind:
     build: litecoin
-    command: bash -c "litecoind --conf=/root/.litecoin/litecoin.conf && sleep 5d"
-    ports:
-      - 9332:9332
-      - 9333:9333
+    command: /root/.litecoin/run.sh
     volumes:
-      - ${LITECOIN_DATA}:/root/.litecoin/
+      - /home/zuber/.litecoin:/root/.litecoin/
+      - ./litecoin/run.sh:/root/.litecoin/run.sh
+    environment:
+      - TESTNET=1
     networks:
       - cryptexcb_default
 
