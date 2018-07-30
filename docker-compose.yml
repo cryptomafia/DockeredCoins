@@ -26,7 +26,7 @@ services:
 
   geth:
     build: ethereum
-    command: /root/.ethereum/run.sh
+    command: sh /root/.ethereum/run.sh
     volumes:
       - ${COINS_DIRECTORY}/.ethereum:/root/.ethereum/
       - ./ethereum/run.sh:/root/.ethereum/run.sh
