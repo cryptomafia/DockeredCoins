@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [[ "$TESTNET" -eq 0 ]] ; then
    echo Starting ethereum main network
 else
