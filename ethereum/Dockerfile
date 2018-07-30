@@ -3,6 +3,7 @@ FROM golang:1.10-alpine as builder
 
 RUN apk add --no-cache make gcc musl-dev linux-headers git
 
+WORKDIR /
 RUN git clone https://github.com/ethereum/go-ethereum.git
 RUN cd /go-ethereum && make geth
 
