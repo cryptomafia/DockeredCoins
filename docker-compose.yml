@@ -36,7 +36,7 @@ services:
 #      - coins
   dashd:
     build: dash
-    command: /root/.dashcore/run.sh
+    command: /root/.dash/run.sh
     volumes:
       - ${COINS_DIR}/.dash:/root/.dash/
       - ./dash/run.sh:/root/.dash/run.sh
