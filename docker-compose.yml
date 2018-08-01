@@ -36,10 +36,10 @@ services:
 #      - coins
   dashd:
     build: dash
-    command: /root/.dash/run.sh
+    command: /root/.dashcore/run.sh
     volumes:
-      - ${COINS_DIR}/.dash:/root/.dash/
-      - ./dash/run.sh:/root/.dash/run.sh
+    - ${COINS_DIR}/.dash:/root/.dash/
+    - ./dash/run.sh:/root/.dash/run.sh
     environment:
       - TESTNET=1
     networks:
