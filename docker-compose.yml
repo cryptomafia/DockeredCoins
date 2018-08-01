@@ -5,7 +5,7 @@ services:
     build: bitcoin
     command: /root/.bitcoin/run.sh
     volumes:
-      - ${COINS_DIRECTORY}/.bitcoin:/root/.bitcoin/
+      - ${COINS_DIR}/.bitcoin:/root/.bitcoin/
       - ./bitcoin/run.sh:/root/.bitcoin/run.sh
     environment:
       - TESTNET=1
@@ -17,7 +17,7 @@ services:
     build: litecoin
     command: /root/.litecoin/run.sh
     volumes:
-      - ${COINS_DIRECTORY}/.litecoin:/root/.litecoin/
+      - ${COINS_DIR}/.litecoin:/root/.litecoin/
       - ./litecoin/run.sh:/root/.litecoin/run.sh
     environment:
       - TESTNET=1
@@ -28,7 +28,7 @@ services:
 #    build: ethereum
 #    command: sh /root/.ethereum/run.sh
 #    volumes:
-#      - ${COINS_DIRECTORY}/.ethereum:/root/.ethereum/
+#      - ${COINS_DIR}/.ethereum:/root/.ethereum/
 #      - ./ethereum/run.sh:/root/.ethereum/run.sh
 #    environment:
 #      - TESTNET=1
@@ -36,10 +36,10 @@ services:
 #      - coins
   dashd:
     build: dash
-    command: /root/.litecoin/run.sh
+    command: /root/.dashcore/run.sh
     volumes:
-      - ${COINS_DIRECTORY}/.dash:/root/.dash/
-      - ./dash/run.sh:/root/.dash/run.sh
+      - ${COINS_DIR}/.dash:/root/.dashcore/
+      - ./dash/run.sh:/root/.dashcore/run.sh
     environment:
       - TESTNET=1
     networks:
