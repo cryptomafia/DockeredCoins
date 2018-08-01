@@ -38,8 +38,8 @@ services:
     build: dash
     command: /root/.dashcore/run.sh
     volumes:
-      - ${COINS_DIR}/.dash:/root/.dashcore/
-      - ./dash/run.sh:/root/.dashcore/run.sh
+      - ${COINS_DIR}/.dash:/root/.dash/
+      - ./dash/run.sh:/root/.dash/run.sh
     environment:
       - TESTNET=1
     networks:
