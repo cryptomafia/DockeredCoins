@@ -4,46 +4,31 @@ services:
   bitcoind:
     build: bitcoin
     command: /root/.bitcoin/run.sh
-    volumes:
-      - ${COINS_DIR}/.bitcoin:/root/.bitcoin/
-      - ./bitcoin/run.sh:/root/.bitcoin/run.sh
     environment:
-      - TESTNET=1
+      TESTNET: 1
+    volumes:
+      - ${LEDGERS_DIR}/btc:/root/.bitcoin/
+      - ./bitcoin/bitcoin.conf:/root/.bitcoin/bitcoin.conf
+      - ./bitcoin/run.sh:/root/.bitcoin/run.sh
     networks:
       - coins
+    ports:
+      - 18332:18332
 
 
   litecoind:
     build: litecoin
     command: /root/.litecoin/run.sh
     volumes:
-      - ${COINS_DIR}/.litecoin:/root/.litecoin/
+      - ${LEDGERS_DIR}/ltc:/root/.litecoin/
+      - ./litecoin/litecoin.conf:/root/.litecoin/litecoin.conf
       - ./litecoin/run.sh:/root/.litecoin/run.sh
     environment:
-      - TESTNET=1
+      TESTNET: 1
     networks:
       - coins
-
-#  geth:
-#    build: ethereum
-#    command: sh /root/.ethereum/run.sh
-#    volumes:
-#      - ${COINS_DIR}/.ethereum:/root/.ethereum/
-#      - ./ethereum/run.sh:/root/.ethereum/run.sh
-#    environment:
-#      - TESTNET=1
-#    networks:
-#      - coins
-  dashd:
-    build: dash
-    command: /root/.dash/run.sh
-    volumes:
-    - ${COINS_DIR}/.dash:/root/.dash/
-    - ./dash/run.sh:/root/.dash/run.sh
-    environment:
-      - TESTNET=1
-    networks:
-      - coins
+    ports:
+      - 19332:19332
 
 networks:
   coins:
